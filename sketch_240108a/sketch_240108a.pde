@@ -1,4 +1,4 @@
-import java.io.*; //Pure Java Library
+import java.io.*; 
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -19,8 +19,8 @@ int currentSong = 0;
 
 void setup() {
   size(800, 600);
-  backgroundImage = loadImage("OIP.jpg"); //Replace with your background image file name
-  String relativePathway = "Music/MusicAndImage/";
+  backgroundImage = loadImage("background.jpg");  file name
+  String relativePathway = "FreeWare Music/MusicDownload/";
   String absolutePath = sketchPath(relativePathway);
   musicFolder = new File(absolutePath);
   int musicFileCount = musicFolder.list().length;
@@ -60,46 +60,46 @@ void draw() {
 }
 
 void keyPressed() {
-  if (keyCode == LEFT) { //Back Button
+  if (keyCode == LEFT) { n
     if (currentSong > 0) {
       currentSong--;
       playList[currentSong].play();
     }
-  } else if (keyCode == RIGHT) { //Next Button
+  } else if (keyCode == RIGHT) { 
     if (currentSong < numberOfSongs - 1) {
       currentSong++;
       playList[currentSong].play();
     }
-  } else if (keyCode == ' ') { //Play-Pause
+  } else if (keyCode == ' ') { 
     if (playList[currentSong].isPlaying()) {
       playList[currentSong].pause();
     } else {
       playList[currentSong].play();
     }
-  } else if (keyCode == ENTER) { //Automatic Play Button
+  } else if (keyCode == ENTER) { 
     playList[currentSong].play();
-  } else if (key == 'E' || key == 'e') { //End of Song
+  } else if (key == 'E' || key == 'e') { 
     if (playList[currentSong].position() > playList[currentSong].length() * 0.8) {
       playList[currentSong].rewind();
     }
-  } else if (key == 'L' || key == 'l') { //Looping Songs
+  } else if (key == 'L' || key == 'l') { 
     int loops = playList[currentSong].loopCount();
     if (loops == -1) {
       playList[currentSong].loop(0);
     } else {
       playList[currentSong].loop(loops + 1);
     }
-  } else if (key == 'M' || key == 'm') { //Mute Button
+  } else if (key == 'M' || key == 'm') { 
     if (playList[currentSong].isMuted()) {
       playList[currentSong].unmute();
     } else {
       playList[currentSong].mute();
     }
-  } else if (key == 'F' || key == 'f') { //Fast Forward
+  } else if (key == 'F' || key == 'f') { 
     playList[currentSong].skip(1000);
-  } else if (key == 'R' || key == 'r') { //Fast Rewind
+  } else if (key == 'R' || key == 'r') { 
     playList[currentSong].skip(-1000);
-  } else if (key == 'S' || key == 's') { //Stop Button
+  } else if (key == 'S' || key == 's') { 
     playList[currentSong].pause();
     playList[currentSong].rewind();
   }
